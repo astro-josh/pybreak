@@ -11,7 +11,7 @@ wn.tracer(0)
 paddle = turtle.Turtle()
 paddle.speed(0)
 paddle.shape('square')
-paddle.shapesize(stretch_wid=1, stretch_len=5)
+paddle.shapesize(1, 5, 1)
 paddle.color('blue')
 paddle.penup()
 paddle.goto(0, -250)
@@ -24,10 +24,12 @@ ball.penup()
 ball.goto(0, 0)
 
 def paddle_right():
-    paddle.setx(paddle.xcor() + 20)
+    if(paddle.xcor() < 325):
+        paddle.setx(paddle.xcor() + 40)
 
 def paddle_left():
-    paddle.setx(paddle.xcor() - 20)
+    if(paddle.xcor() > -325):
+        paddle.setx(paddle.xcor() - 40)
 
 wn.listen()
 wn.onkeypress(paddle_right, 'Right')
