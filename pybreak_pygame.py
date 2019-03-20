@@ -46,7 +46,7 @@ def draw_ball(ball):
 
 
 # moves the ball returns new position
-def moveBall(ball, ballDirX, ballDirY):
+def move_ball(ball, ballDirX, ballDirY):
     ball.x += (ballDirX * INCREASESPEED)
     ball.y += (ballDirY * INCREASESPEED)
     return ball
@@ -168,7 +168,7 @@ def main():
         drawPaddle(paddle2)
         draw_ball(ball)
 
-        ball = moveBall(ball, ballDirX, ballDirY)
+        ball = move_ball(ball, ballDirX, ballDirY)
         ballDirX, ballDirY = checkEdgeCollision(ball, ballDirX, ballDirY)
         score = checkPointScored(paddle1, ball, score, ballDirX)
         ballDirX = ballDirX * checkHitBall(ball, paddle1, paddle2, ballDirX)
