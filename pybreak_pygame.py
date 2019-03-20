@@ -54,7 +54,7 @@ def move_ball(ball, ballDirX, ballDirY):
 
 # Checks for a collision with a wall, and 'bounces' ball off it.
 # Returns new direction
-def checkEdgeCollision(ball, ballDirX, ballDirY):
+def check_edge_collision(ball, ballDirX, ballDirY):
     if ball.top == (LINETHICKNESS) or ball.bottom == (WINDOWHEIGHT - LINETHICKNESS):
         ballDirY = ballDirY * -1
     if ball.left == (LINETHICKNESS) or ball.right == (WINDOWWIDTH - LINETHICKNESS):
@@ -169,7 +169,7 @@ def main():
         draw_ball(ball)
 
         ball = move_ball(ball, ballDirX, ballDirY)
-        ballDirX, ballDirY = checkEdgeCollision(ball, ballDirX, ballDirY)
+        ballDirX, ballDirY = check_edge_collision(ball, ballDirX, ballDirY)
         score = checkPointScored(paddle1, ball, score, ballDirX)
         ballDirX = ballDirX * checkHitBall(ball, paddle1, paddle2, ballDirX)
         paddle2 = artificialIntelligence(ball, ballDirX, paddle2)
